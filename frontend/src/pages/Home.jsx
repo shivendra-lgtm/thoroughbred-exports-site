@@ -175,7 +175,7 @@ export default function Home() {
             backgroundImage: "url('/images/containers-bg.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.30,
+            opacity: 0.45,
             filter: "grayscale(0.35) contrast(1.05)",
           }}
         />
