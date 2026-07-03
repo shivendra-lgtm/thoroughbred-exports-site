@@ -167,7 +167,28 @@ export default function Home() {
     <div data-testid="home-page">
       {/* HERO */}
       <section className="relative overflow-hidden bg-black">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-start">
+        {/* Faded container-yard background */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "url('/images/containers-bg.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.18,
+            filter: "grayscale(0.35) contrast(1.05)",
+          }}
+        />
+        {/* Vignette to keep edges deep black */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,1) 100%)",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-start">
           <motion.div
             initial="hidden"
             animate="show"
