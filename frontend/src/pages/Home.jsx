@@ -13,8 +13,7 @@ export default function Home() {
   return (
     <div data-testid="home-page">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-brand-dark">
-        <div className="absolute inset-0 grain-dark pointer-events-none" />
+      <section className="relative overflow-hidden bg-black">
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-center">
           <motion.div
             initial="hidden"
@@ -24,10 +23,9 @@ export default function Home() {
           >
             <h1
               data-testid="hero-headline"
-              className="font-serif text-[2rem] sm:text-[2.7rem] lg:text-[3.375rem] leading-[1.35] tracking-tight"
+              className="font-serif text-[2rem] sm:text-[2.7rem] lg:text-[3.375rem] leading-[1.55] tracking-tight"
             >
               <span
-                className="inline"
                 style={{
                   backgroundColor: "#264635",
                   color: "#F6F4EB",
@@ -36,7 +34,11 @@ export default function Home() {
                   WebkitBoxDecorationBreak: "clone",
                 }}
               >
-                Harnessing <span className="italic">Trade</span> Opportunities with <span className="italic">Precision.</span>
+                Harnessing <span className="italic">Trade</span>
+                <br />
+                Opportunities
+                <br />
+                with <span className="italic">Precision.</span>
               </span>
             </h1>
             <p className="mt-10 text-lg md:text-xl text-brand-cream max-w-xl leading-relaxed">
