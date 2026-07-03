@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Ship, Leaf, Globe2 } from "lucide-react";
@@ -8,6 +8,170 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
+
+const TV_SHIPMENT_IMAGES = [
+  "/images/img_29.jpg",
+  "/images/img_30.jpg",
+  "/images/img_1.jpg",
+  "/images/img_20.jpg",
+  "/images/img_23.jpg",
+  "/images/img_25.jpg",
+  "/images/img_27.jpg",
+];
+
+function RetroTV({ images, intervalMs = 3200 }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(
+      () => setIdx((i) => (i + 1) % images.length),
+      intervalMs
+    );
+    return () => clearInterval(t);
+  }, [images.length, intervalMs]);
+
+  return (
+    <div
+      data-testid="retro-tv"
+      className="relative mx-auto w-full max-w-[440px] select-none"
+    >
+      {/* Antenna */}
+      <div className="absolute left-1/2 -translate-x-1/2 -top-14 md:-top-20 flex items-end gap-8 pointer-events-none">
+        <div className="relative">
+          <div
+            className="w-[3px] h-14 md:h-20 bg-gradient-to-t from-[#a8823a] to-brand-gold origin-bottom"
+            style={{ transform: "rotate(-25deg)" }}
+          />
+          <div className="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-brand-gold" />
+        </div>
+        <div className="relative">
+          <div
+            className="w-[3px] h-14 md:h-20 bg-gradient-to-t from-[#a8823a] to-brand-gold origin-bottom"
+            style={{ transform: "rotate(25deg)" }}
+          />
+          <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-brand-gold" />
+        </div>
+      </div>
+
+      {/* Cabinet */}
+      <div
+        className="relative rounded-[28px] p-5 md:p-6 shadow-2xl"
+        style={{
+          background:
+            "linear-gradient(160deg, #4a3120 0%, #3a2416 45%, #2a1a0e 100%)",
+          boxShadow:
+            "0 30px 60px -20px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.08)",
+        }}
+      >
+        {/* Bezel */}
+        <div
+          className="relative rounded-[18px] p-3 md:p-4"
+          style={{
+            background:
+              "linear-gradient(180deg, #1a0f08 0%, #0d0805 100%)",
+            boxShadow: "inset 0 2px 8px rgba(0,0,0,0.7)",
+          }}
+        >
+          {/* Screen */}
+          <div
+            className="relative aspect-[4/3] overflow-hidden rounded-[10px] bg-black"
+            style={{
+              boxShadow:
+                "inset 0 0 40px rgba(0,0,0,0.85), inset 0 0 4px rgba(255,255,255,0.05)",
+            }}
+          >
+            {images.map((src, i) => (
+              <img
+                key={src}
+                src={src}
+                alt=""
+                loading={i === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                  i === idx ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ filter: "saturate(0.9) contrast(1.05)" }}
+              />
+            ))}
+
+            {/* CRT scanlines */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-25 mix-blend-multiply"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(0deg, rgba(0,0,0,0.7) 0px, rgba(0,0,0,0.7) 1px, transparent 1px, transparent 3px)",
+              }}
+            />
+            {/* Screen curvature vignette */}
+            <div
+              className="absolute inset-0 pointer-events-none rounded-[10px]"
+              style={{
+                boxShadow: "inset 0 0 60px 8px rgba(0,0,0,0.8)",
+              }}
+            />
+            {/* Glass sheen */}
+            <div
+              className="absolute inset-0 pointer-events-none rounded-[10px]"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.06) 100%)",
+              }}
+            />
+            {/* Live LED */}
+            <div className="absolute bottom-2 right-2 flex items-center gap-1.5 pointer-events-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_6px_rgba(239,68,68,0.9)]" />
+              <span className="text-[8px] tracking-[0.3em] text-red-400/90 uppercase">
+                Live
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Speaker + controls row */}
+        <div className="mt-4 md:mt-5 flex items-center justify-between gap-4">
+          {/* Speaker grille */}
+          <div
+            className="flex-1 h-8 rounded-[6px] opacity-80"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)",
+            }}
+          />
+          {/* Brand plaque */}
+          <div className="px-2.5 py-1 border border-brand-gold/50 rounded-sm">
+            <span className="text-brand-gold text-[9px] uppercase tracking-[0.3em]">
+              Thoroughbred
+            </span>
+          </div>
+          {/* Knobs */}
+          <div className="flex gap-2.5">
+            {[0, 1].map((k) => (
+              <div
+                key={k}
+                className="w-6 h-6 rounded-full border border-black/50 shadow-inner relative"
+                style={{
+                  background:
+                    "radial-gradient(circle at 30% 30%, #e8c56b 0%, #a8823a 45%, #6a4d1e 100%)",
+                }}
+              >
+                <span className="absolute top-1 left-1/2 -translate-x-1/2 w-[2px] h-2 bg-black/60 rounded" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Legs */}
+      <div className="flex justify-between px-10 -mt-1">
+        <div className="w-3 h-6 rounded-b-md bg-[#2a1a0e] shadow-md" />
+        <div className="w-3 h-6 rounded-b-md bg-[#2a1a0e] shadow-md" />
+      </div>
+
+      {/* Caption */}
+      <p className="mt-6 text-center overline text-brand-gold/70">
+        Now Broadcasting · Shipments in Motion
+      </p>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -72,39 +236,15 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Tetris collage */}
+          {/* Retro TV — auto-cycles through shipment images */}
           <motion.div
             initial="hidden"
             animate="show"
             variants={fadeUp}
-            transition={{ delay: 0.15 }}
-            className="lg:col-span-5 relative h-[520px] md:h-[620px]"
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-5 relative flex items-center justify-center pt-16 lg:pt-20"
           >
-            <div className="absolute top-0 right-0 w-3/5 h-3/5 overflow-hidden">
-              <img
-                src="/images/img_30.jpg"
-                alt="Banana plantation at harvest"
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
-            </div>
-            <div className="absolute bottom-0 left-0 w-2/3 h-3/5 overflow-hidden border-t-4 border-l-4 border-brand-cream shadow-xl">
-              <img
-                src="/images/img_29.jpg"
-                alt="Thoroughbred-branded export cartons being packed"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute top-1/3 left-1/2 w-1/3 h-1/3 overflow-hidden border-4 border-brand-cream shadow-2xl">
-              <img
-                src="/images/img_1.jpg"
-                alt="Grapes ready for export"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-4 right-4 bg-brand-saffron text-brand-dark px-4 py-2">
-              <span className="overline">Global · India-Origin</span>
-            </div>
+            <RetroTV images={TV_SHIPMENT_IMAGES} intervalMs={3200} />
           </motion.div>
         </div>
       </section>
