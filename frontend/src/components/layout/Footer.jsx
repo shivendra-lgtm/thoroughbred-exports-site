@@ -10,29 +10,9 @@ export default function Footer() {
       className="relative bg-brand-dark text-brand-cream overflow-hidden"
     >
       <div className="absolute inset-0 grain-dark pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative">
-        {/* Massive brandmark */}
-        <div className="border-b border-brand-cream/10 pb-16 mb-16">
-          <p className="overline text-brand-saffron mb-6">
-            {COMPANY.closer}
-          </p>
-          <h2 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter text-brand-cream">
-            Thoroughbred
-            <span className="block italic text-brand-saffron/90">Exports</span>
-          </h2>
-        </div>
-
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20 relative">
         <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
-            <p className="overline text-brand-cream/50 mb-4">The Firm</p>
-            <p className="font-serif text-2xl md:text-3xl leading-snug text-brand-cream/95 max-w-md">
-              A merchant export house based in Thane, India — connecting the
-              country&rsquo;s finest produce and ingredients to buyers across the
-              world.
-            </p>
-          </div>
-
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <p className="overline text-brand-cream/50 mb-5">Navigate</p>
             <ul className="flex flex-col gap-3 text-brand-cream/80">
               {[
@@ -59,7 +39,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-8">
             <p className="overline text-brand-cream/50 mb-5">Reach Us</p>
             <ul className="flex flex-col gap-4 text-brand-cream/85 text-sm">
               <li className="flex gap-3">
