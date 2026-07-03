@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Fraunces"', 'ui-serif', 'Georgia', 'serif'],
+        serif: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
         sans: ['"Outfit"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       borderRadius: {

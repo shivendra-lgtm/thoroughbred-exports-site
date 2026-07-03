@@ -24,14 +24,13 @@ export default function Home() {
           >
             <h1
               data-testid="hero-headline"
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-brand-dark"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-brand-green"
             >
-              Harnessing{" "}
-              <span className="italic text-brand-green">Trade</span>
+              Harnessing <span className="italic">Trade</span>
               <br />
               Opportunities
               <br />
-              with <span className="italic text-brand-terracotta">Precision.</span>
+              with <span className="italic">Precision.</span>
             </h1>
             <p className="mt-10 text-lg md:text-xl text-brand-ink max-w-xl leading-relaxed">
               {COMPANY.pillarsLine}
