@@ -24,13 +24,16 @@ export default function Home() {
           >
             <h1
               data-testid="hero-headline"
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-brand-green"
+              style={{ color: "#264635" }}
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight"
             >
-              Harnessing <span className="italic">Trade</span>
+              <span style={{ color: "#264635" }}>Harnessing </span>
+              <span style={{ color: "#264635" }} className="italic">Trade</span>
               <br />
-              Opportunities
+              <span style={{ color: "#264635" }}>Opportunities</span>
               <br />
-              with <span className="italic">Precision.</span>
+              <span style={{ color: "#264635" }}>with </span>
+              <span style={{ color: "#264635" }} className="italic">Precision.</span>
             </h1>
             <p className="mt-10 text-lg md:text-xl text-brand-ink max-w-xl leading-relaxed">
               {COMPANY.pillarsLine}
