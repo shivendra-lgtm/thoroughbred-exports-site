@@ -45,7 +45,7 @@ export default function Navbar() {
             <img
               src="/images/logo.png"
               alt="Thoroughbred Exports"
-              className="h-[50px] md:h-[58px] w-auto object-contain"
+              className="h-[50px] w-auto object-contain"
             />
           </Link>
 
