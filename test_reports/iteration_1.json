@@ -1,0 +1,48 @@
+{
+  "summary": "Frontend-only static React marketing site tested end-to-end via Playwright at preview URL. All 5 pages render, nav works, direct-URL access works (dev server serves index.html), assets serve HTTP 200, PDFs download, contact form graceful error works, mobile menu opens/closes, and production build succeeds. Two minor issues found (duplicate testids in Services, mobile-nav-link naming mismatch with spec).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Services.jsx (Ingredients bento grid)", "issue": "Ingredients grid reuses data-testid='produce-item-{i}' from BentoGrid — results in 12 elements sharing only 6 unique testids (produce-item-0..5 appear twice on /services). Ingredients grid should use a distinct pattern like ingredient-item-{i}.", "selector": "[data-testid^='produce-item-']", "priority": "MEDIUM"},
+      {"component": "Navbar.jsx (mobile menu)", "issue": "Spec asks mobile menu links to follow data-testid='nav-link-{label}' pattern; implementation uses 'mobile-nav-link-{label}'. Functionality is correct (menu opens, links route, auto-closes) but selector pattern deviates from spec. Consider adding alias or updating spec.", "selector": "[data-testid='mobile-menu'] a", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Rename Ingredients grid testids in Services.jsx to 'ingredient-item-{i}' (or make BentoGrid accept a testId prefix prop) to avoid duplicate testids.",
+    "Optional: align mobile menu link testids with 'nav-link-{label}' pattern (or duplicate as both)."
+  ],
+  "critical_code_review_comments": [
+    "BentoGrid in Services.jsx hardcodes testId prefix — accept it as a prop to prevent duplicate ids when reused.",
+    "Web3Forms access key is a placeholder in /app/frontend/src/data/site.js — expected per user choice; graceful error path correctly implemented.",
+    "All interactive elements have data-testid attributes — good testability."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "95%"},
+  "test_credentials": "none needed (no auth)",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Static site, no backend. All routes are client-side via BrowserRouter. Public URL: https://commodity-hub-37.preview.emergentagent.com. Curl assets with User-Agent header (urllib default UA gets 403 from preview ingress). Verified: yarn build succeeds, /build contains index.html, .htaccess, images/, pdfs/, hashed bundles. Contact form intentionally shows graceful error because Web3Forms access key is placeholder in /app/frontend/src/data/site.js.",
+  "detailed_verification": {
+    "home_tagline_visible": true,
+    "navbar_logo_visible": true,
+    "nav_links_all_5_present_desktop": true,
+    "direct_url_routes_work": ["/services", "/licenses", "/catalogues", "/contact"],
+    "services_fresh_produce_items": 6,
+    "services_ingredients_items": 6,
+    "licenses_cards": 6,
+    "catalogues_cards": 4,
+    "catalogue_pdf_hrefs_and_http_200": true,
+    "contact_page_address_phone_email_linkedin": true,
+    "contact_form_graceful_error_shown": "'Contact form is not yet configured. Please email us directly at shivendra@thoroughbredexports.com'",
+    "mobile_menu_opens_5_links_and_autocloses": true,
+    "footer_testids_present": ["footer-phone", "footer-email", "footer-linkedin"],
+    "console_errors": 0,
+    "assets_http_200": ["/images/logo.png", "/images/img_29.jpg", "/images/img_30.jpg", "/pdfs/company-profile.pdf"],
+    "yarn_build_success": true,
+    "build_artifacts_present": ["build/index.html", "build/.htaccess", "build/images/logo.png", "build/pdfs/*.pdf", "build/static/js/main.*.js", "build/static/css/main.*.css"]
+  }
+}
