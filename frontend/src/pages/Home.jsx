@@ -42,7 +42,9 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-10 text-lg md:text-xl text-brand-cream max-w-xl leading-relaxed">
-              {COMPANY.pillarsLine}
+              Clear Communication  ·  Great Quality
+              <br />
+              Right Price  ·  Timely{"\u00A0"}Deliverance.
               <span className="block mt-3 font-serif italic text-brand-terracotta text-2xl md:text-3xl font-semibold">
                 {COMPANY.closer}
               </span>
