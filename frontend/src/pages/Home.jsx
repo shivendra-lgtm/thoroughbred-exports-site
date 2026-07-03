@@ -135,12 +135,6 @@ function RetroTV({ images, intervalMs = 3200 }) {
                 "repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)",
             }}
           />
-          {/* Brand plaque */}
-          <div className="px-2.5 py-1 border border-brand-gold/50 rounded-sm">
-            <span className="text-brand-gold text-[9px] uppercase tracking-[0.3em]">
-              Thoroughbred
-            </span>
-          </div>
           {/* Knobs */}
           <div className="flex gap-2.5">
             {[0, 1].map((k) => (
@@ -178,7 +172,7 @@ export default function Home() {
     <div data-testid="home-page">
       {/* HERO */}
       <section className="relative overflow-hidden bg-black">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-start">
           <motion.div
             initial="hidden"
             animate="show"
@@ -242,7 +236,7 @@ export default function Home() {
             animate="show"
             variants={fadeUp}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-5 relative flex items-center justify-center pt-16 lg:pt-20"
+            className="lg:col-span-5 relative flex items-start justify-end"
           >
             <RetroTV images={TV_SHIPMENT_IMAGES} intervalMs={3200} />
           </motion.div>
