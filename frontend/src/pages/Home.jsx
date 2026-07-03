@@ -32,7 +32,7 @@ function RetroTV({ images, intervalMs = 3200 }) {
   return (
     <div
       data-testid="retro-tv"
-      className="relative mx-auto w-full max-w-[440px] select-none"
+      className="relative w-full max-w-[340px] select-none"
     >
       {/* Antenna */}
       <div className="absolute left-1/2 -translate-x-1/2 -top-14 md:-top-20 flex items-end gap-8 pointer-events-none">
