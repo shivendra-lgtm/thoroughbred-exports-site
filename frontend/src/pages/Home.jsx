@@ -25,7 +25,7 @@ const HERO_BACKGROUNDS = [
   "/images/hero-bg-6.jpg",
   "/images/hero-bg-7.jpg",
 ];
-const BG_INTERVAL_MS = 4000;
+const BG_INTERVAL_MS = 3000;
 
 export default function Home() {
   const [bgIdx, setBgIdx] = useState(0);
