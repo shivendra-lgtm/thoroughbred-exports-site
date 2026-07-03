@@ -91,8 +91,11 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-16 md:pt-24 md:pb-24">
           <motion.div initial="hidden" animate="show" variants={fadeUp}>
-            <h1
+            <motion.h1
               data-testid="hero-headline"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
               className="font-serif text-[2rem] sm:text-[2.7rem] lg:text-[3.375rem] leading-[1.55] tracking-tight"
             >
               <span
@@ -110,7 +113,7 @@ export default function Home() {
                 <br />
                 with <span className="italic">Precision.</span>
               </span>
-            </h1>
+            </motion.h1>
 
             <p className="mt-10 text-lg md:text-xl text-brand-cream max-w-xl leading-relaxed">
               Clear Communication &nbsp;·&nbsp; Great Quality
