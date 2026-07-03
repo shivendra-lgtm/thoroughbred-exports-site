@@ -49,7 +49,7 @@ export default function Home() {
         {/* Cycling faded backgrounds (containers image shows first on load) */}
         {HERO_BACKGROUNDS.map((src, i) => (
           <React.Fragment key={src}>
-            {/* Base pass — uniform 40% opacity across the section */}
+            {/* Base pass — uniform 50% opacity across the section */}
             <div
               aria-hidden
               className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
@@ -57,7 +57,7 @@ export default function Home() {
                 backgroundImage: `url('${src}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                opacity: i === bgIdx ? 0.4 : 0,
+                opacity: i === bgIdx ? 0.5 : 0,
                 filter: "grayscale(0.35) contrast(1.05)",
               }}
             />
