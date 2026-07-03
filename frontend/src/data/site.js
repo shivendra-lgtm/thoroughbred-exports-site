@@ -5,7 +5,7 @@ export const COMPANY = {
   name: "Thoroughbred Exports",
   shortName: "Thoroughbred",
   tagline: "Harnessing Trade Opportunities with Precision.",
-  pillarsLine: "Clear Communication  ·  Great Quality  ·  Right Price  ·  Timely Deliverance.",
+  pillarsLine: "Clear Communication  ·  Great Quality  ·  Right Price  ·  Timely\u00A0Deliverance.",
   closer: "That's all we do.",
   phone: "+91-97697-19146",
   phoneHref: "tel:+919769719146",
