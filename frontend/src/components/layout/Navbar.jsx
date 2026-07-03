@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { COMPANY } from "@/data/site";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
@@ -37,7 +36,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24 md:h-28">
           <Link
             to="/"
             data-testid="navbar-logo-link"
@@ -46,7 +45,7 @@ export default function Navbar() {
             <img
               src="/images/logo.png"
               alt="Thoroughbred Exports"
-              className="h-10 md:h-11 w-auto object-contain"
+              className="h-14 md:h-16 w-auto object-contain"
             />
           </Link>
 
@@ -70,14 +69,6 @@ export default function Navbar() {
               </NavLink>
             ))}
           </nav>
-
-          <a
-            href={COMPANY.emailHref}
-            data-testid="navbar-cta-enquire"
-            className="hidden md:inline-flex items-center bg-brand-green text-brand-cream px-6 py-3 text-xs uppercase tracking-[0.22em] hover:bg-brand-dark transition-colors"
-          >
-            Enquire
-          </a>
 
           <button
             data-testid="navbar-menu-toggle"
@@ -112,13 +103,6 @@ export default function Navbar() {
                 {l.label}
               </NavLink>
             ))}
-            <a
-              href={COMPANY.emailHref}
-              data-testid="mobile-cta-enquire"
-              className="mt-2 inline-block bg-brand-green text-brand-cream px-6 py-3 text-xs uppercase tracking-[0.22em] w-fit"
-            >
-              Enquire
-            </a>
           </nav>
         </div>
       )}

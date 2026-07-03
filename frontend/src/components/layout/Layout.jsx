@@ -13,7 +13,7 @@ export default function Layout() {
   return (
     <div data-testid="site-layout" className="min-h-screen bg-brand-cream text-brand-dark flex flex-col">
       <Navbar />
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-24 md:pt-28">
         <Outlet />
       </main>
       <Footer />
