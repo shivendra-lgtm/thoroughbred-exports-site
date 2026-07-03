@@ -1,0 +1,160 @@
+{
+  "theme_and_archetype": {
+    "theme": "LIGHT",
+    "archetype": "1 (Organic & Earthy)",
+    "description": "Earthy, authentic, trustworthy, international-grade professionalism. Rooted in Indian agriculture but projecting global competence.",
+    "emotional_tone": "Warm, professional, reliable, tactile."
+  },
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond",
+      "weights": ["400", "500", "600", "700"],
+      "usage": "H1, H2, H3. Highly expressive, elegant serif that conveys heritage and premium quality. Use tracking-tight."
+    },
+    "body": {
+      "family": "Outfit",
+      "weights": ["300", "400", "500", "600"],
+      "usage": "Body text, UI elements, buttons, and form inputs. Clean, legible, humanist sans."
+    },
+    "overlines": {
+      "style": "uppercase, tracking-[0.2em], text-xs or text-sm, font-medium, Outfit."
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl leading-none tracking-tighter",
+      "h2": "text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight",
+      "h3": "text-2xl sm:text-3xl leading-snug",
+      "body": "text-base sm:text-lg leading-relaxed text-brand-dark/80"
+    }
+  },
+  "color_palette": {
+    "backgrounds": {
+      "primary": "#F6F4EB",
+      "secondary": "#EFECE1",
+      "dark_section": "#1A201C"
+    },
+    "text": {
+      "primary": "#1A201C",
+      "secondary": "#4A524D",
+      "light_on_dark": "#F6F4EB"
+    },
+    "brand_colors": {
+      "green": "#264635",
+      "terracotta": "#C45A44",
+      "saffron": "#DFA73D",
+      "gold_accent": "#B89645"
+    },
+    "surface_strategies": {
+      "glass": "backdrop-blur-xl bg-[#F6F4EB]/70 border-b border-[#1A201C]/10",
+      "cards": "bg-[#F6F4EB] border border-[#1A201C]/10 shadow-sm transition-all hover:shadow-md hover:border-[#1A201C]/30",
+      "textures": "Add subtle SVG noise/grain overlays to large sections for tactile, earthy feel."
+    }
+  },
+  "layout_and_spacing": {
+    "philosophy": "Generous Spacing, Asymmetry, High Visual Impact",
+    "grid_system": "Use The Bento Grid Protocol (Mode A: Tetris Grid) for visual sections, Mode B for functional lists.",
+    "spacing_scale": {
+      "section_padding": "py-24 md:py-32",
+      "container": "max-w-7xl mx-auto px-6 md:px-12",
+      "element_gap": "gap-8 md:gap-12"
+    },
+    "images": {
+      "mobile_max_height": "max-h-[70vh]"
+    }
+  },
+  "media_urls": {
+    "hero_collage": [
+      "/images/img_1.jpg",
+      "/images/img_2.jpg",
+      "/images/img_3.jpg"
+    ],
+    "services_fresh_produce": [
+      "/images/img_4.jpg",
+      "/images/img_5.jpg",
+      "/images/img_6.jpg",
+      "/images/img_7.jpg",
+      "/images/img_8.jpg",
+      "/images/img_9.jpg"
+    ],
+    "services_ingredients": [
+      "/images/img_10.jpg",
+      "/images/img_11.jpg",
+      "/images/img_12.jpg",
+      "/images/img_13.jpg",
+      "/images/img_14.jpg",
+      "/images/img_15.jpg"
+    ],
+    "value_pillars": [
+      "/images/img_16.jpg",
+      "/images/img_17.jpg",
+      "/images/img_18.jpg",
+      "/images/img_19.jpg"
+    ],
+    "warehouse_and_about": [
+      "/images/img_20.jpg",
+      "/images/img_21.jpg",
+      "/images/img_22.jpg",
+      "/images/img_23.jpg",
+      "/images/img_24.jpg",
+      "/images/img_25.jpg",
+      "/images/img_26.jpg",
+      "/images/img_27.jpg",
+      "/images/img_28.jpg"
+    ]
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-brand-green text-white px-8 py-4 rounded-none font-outfit font-medium hover:bg-brand-green/90 transition-colors uppercase tracking-wider text-sm",
+      "secondary": "border border-brand-green text-brand-green px-8 py-4 rounded-none font-outfit font-medium hover:bg-brand-green/5 transition-colors uppercase tracking-wider text-sm"
+    },
+    "navigation": {
+      "style": "Sticky, glassmorphic header. Z-50.",
+      "links": "Outfit font, text-sm, tracking-wide, uppercase, hover:text-brand-terracotta transition-colors"
+    },
+    "footer": {
+      "style": "Dark background (brand-dark_section), pale text. Massive typography for brand name. Grid layout for contacts and links. Generous padding py-24."
+    },
+    "forms": {
+      "inputs": "bg-transparent border-b border-brand-dark/20 rounded-none px-0 py-3 focus:border-brand-green focus:ring-0 outline-none font-outfit transition-colors",
+      "integration": "Use Web3Forms for the contact form."
+    },
+    "badges": {
+      "style": "For licenses (APEDA, IEC, etc.), use elegant bordered cards with gold_accent accents and high-quality typography. If standard icons are used, style them sophisticatedly."
+    }
+  },
+  "page_blueprints": {
+    "Home": {
+      "Hero": "Asymmetric layout. Left: Massive typography 'Harnessing Trade Opportunities with Precision.' Right: Tetris-style collage of 3 overlapping images (img_1, img_2, img_3) with subtle Framer Motion parallax. Background: primary cream + grain overlay.",
+      "Value Pillars": "Grid of 4 tall cards (img_16 to img_19) with a dark gradient overlay. Text at bottom: Clear Communication, Great Quality, Right Price, Timely Deliverance.",
+      "Quick Services": "Two massive interactive sections highlighting 'Fresh Produce' and 'Ingredients & Additives'. Large background images from the media set with hover zoom effect. High contrast serif headings.",
+      "Tagline CTA": "A full-width dark section (brand-green) declaring 'That's all we do!' with a stark, minimal button leading to Contact."
+    },
+    "Services": {
+      "Header": "Clean, large text header. 'Our Exports'.",
+      "Fresh Produce": "Grid showcasing img_4 to img_9. Use Mode A Bento Grid (spans of 2 and 1) to break monotony. Earthy terracotta accents.",
+      "Ingredients & Additives": "Grid showcasing img_10 to img_15. Deep green accents.",
+      "Layout Note": "Avoid standard symmetrical 3-column grids. Vary image heights and widths."
+    },
+    "Licenses & Memberships": {
+      "Layout": "Clean, authoritative. 'Certified for Global Excellence.'",
+      "Grid": "A 2x2 or 4x1 grid of Shadcn Cards styled like premium certificates. Borders, subtle gold_accent lines, serif typography for the license names (APEDA, IEC, FIEO, Spices Board). Backgrounds: pure white or secondary cream."
+    },
+    "Catalogues": {
+      "Layout": "A dense, functional layout (Mode B Control Room Grid).",
+      "List": "Rows of downloadable PDF cards. Each card has a Phosphor Icon (FilePdf), title, and a 'Download' text button. Clean borders, hover translates up slightly (-translate-y-1). Points to dummy/placeholder /pdfs/ files in public folder."
+    },
+    "Contacts": {
+      "Layout": "Split screen layout on desktop.",
+      "Left": "Contact info: Address, Phone, Email, LinkedIn. Large typography, clear hierarchy. Use img_24 or img_25 as a faded atmospheric background behind text.",
+      "Right": "Web3Forms integration using customized Shadcn Form. Input fields should be minimal (bottom border only, no full boxes). Submit button uses primary button style."
+    }
+  },
+  "instructions_to_main_agent": {
+    "tech_stack": "React Router (BrowserRouter), Tailwind CSS, Framer Motion, Phosphor Icons (@phosphor-icons/react), Shadcn UI (customize components entirely to match guidelines, strip Vercel look).",
+    "parallel_execution": "Execute component creation and page assembly in parallel where possible.",
+    "testing": "MUST include data-testid on all interactive elements (buttons, links, form inputs) in kebab-case based on role.",
+    "assets": "DO NOT use external image URLs. EXCLUSIVELY use the local public paths provided in media_urls (e.g., /images/img_1.jpg). These represent the 28 provided photographs.",
+    "design_rules": "Strict adherence to the earthy organic color palette. NO purple/blue gradients. NO Inter/Roboto for headings. Use Cormorant Garamond for headings and Outfit for body. Ensure ample padding (p-12 to p-24) on sections.",
+    "contact_form": "Ensure Web3Forms is implemented. Use a placeholder access key if none is provided, but wire the form correctly.",
+    "routing": "Set up BrowserRouter with routes: /, /services, /licenses, /catalogues, /contact."
+  }
+}
