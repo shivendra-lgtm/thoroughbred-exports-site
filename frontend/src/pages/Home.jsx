@@ -25,7 +25,7 @@ const HERO_BACKGROUNDS = [
   "/images/hero-bg-6.jpg",
   "/images/hero-bg-7.jpg",
 ];
-const BG_INTERVAL_MS = 6000;
+const BG_INTERVAL_MS = 4000;
 
 export default function Home() {
   const [bgIdx, setBgIdx] = useState(0);
@@ -48,18 +48,36 @@ export default function Home() {
       >
         {/* Cycling faded backgrounds (containers image shows first on load) */}
         {HERO_BACKGROUNDS.map((src, i) => (
-          <div
-            key={src}
-            aria-hidden
-            className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
-            style={{
-              backgroundImage: `url('${src}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              opacity: i === bgIdx ? 0.4 : 0,
-              filter: "grayscale(0.35) contrast(1.05)",
-            }}
-          />
+          <React.Fragment key={src}>
+            {/* Base pass — uniform 40% opacity across the section */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
+              style={{
+                backgroundImage: `url('${src}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: i === bgIdx ? 0.4 : 0,
+                filter: "grayscale(0.35) contrast(1.05)",
+              }}
+            />
+            {/* Right-side boost — adds ~10% extra visibility on the right half */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
+              style={{
+                backgroundImage: `url('${src}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: i === bgIdx ? 0.1 : 0,
+                filter: "grayscale(0.35) contrast(1.05)",
+                maskImage:
+                  "linear-gradient(to right, transparent 40%, black 90%)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent 40%, black 90%)",
+              }}
+            />
+          </React.Fragment>
         ))}
         {/* Vignette to keep the edges deep black */}
         <div
