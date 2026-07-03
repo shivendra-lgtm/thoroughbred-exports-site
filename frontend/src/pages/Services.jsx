@@ -92,7 +92,7 @@ export default function Services() {
               Maharashtra, Gujarat, Karnataka and Andhra Pradesh.
             </p>
           </div>
-          <BentoGrid items={FRESH_PRODUCE} accent="terracotta" />
+          <BentoGrid items={FRESH_PRODUCE} accent="terracotta" testIdPrefix="produce-item" />
         </div>
       </section>
 
@@ -113,7 +113,7 @@ export default function Services() {
               standards.
             </p>
           </div>
-          <BentoGrid items={INGREDIENTS} accent="saffron" />
+          <BentoGrid items={INGREDIENTS} accent="saffron" testIdPrefix="ingredient-item" />
         </div>
       </section>
 
