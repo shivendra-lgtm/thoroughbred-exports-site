@@ -35,8 +35,8 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-24 md:h-28">
+      <div className="w-full px-6 md:px-16 lg:px-24">
+        <div className="flex items-center h-24 md:h-28">
           <Link
             to="/"
             data-testid="navbar-logo-link"
@@ -50,7 +50,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-10 ml-auto">
             {NAV_LINKS.map((l) => (
               <NavLink
                 key={l.to}
@@ -72,7 +72,7 @@ export default function Navbar() {
 
           <button
             data-testid="navbar-menu-toggle"
-            className="md:hidden p-2 text-brand-dark"
+            className="md:hidden p-2 text-brand-dark ml-auto"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
           >
