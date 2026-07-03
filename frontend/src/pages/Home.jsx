@@ -158,11 +158,6 @@ function RetroTV({ images, intervalMs = 3200 }) {
         <div className="w-3 h-6 rounded-b-md bg-[#2a1a0e] shadow-md" />
         <div className="w-3 h-6 rounded-b-md bg-[#2a1a0e] shadow-md" />
       </div>
-
-      {/* Caption */}
-      <p className="mt-6 text-center overline text-brand-gold/70">
-        Now Broadcasting · Shipments in Motion
-      </p>
     </div>
   );
 }
