@@ -188,7 +188,7 @@ export default function Home() {
               "radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,1) 100%)",
           }}
         />
-        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-start">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-8 md:pt-24 md:pb-12 grid lg:grid-cols-12 gap-12 items-start">
           <motion.div
             initial="hidden"
             animate="show"
