@@ -24,7 +24,7 @@ export default function Home() {
           >
             <h1
               data-testid="hero-headline"
-              className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tighter text-brand-dark"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-brand-dark"
             >
               Harnessing{" "}
               <span className="italic text-brand-green">Trade</span>
