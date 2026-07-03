@@ -35,7 +35,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="w-full px-6 md:px-16 lg:px-24">
+      <div className="w-full pl-4 md:pl-8 pr-4 md:pr-8">
         <div className="flex items-center h-24 md:h-28">
           <Link
             to="/"
@@ -49,8 +49,8 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-10 ml-auto">
+          {/* Desktop nav — anchored to the far right */}
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10 ml-auto">
             {NAV_LINKS.map((l) => (
               <NavLink
                 key={l.to}
