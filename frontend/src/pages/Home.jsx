@@ -22,9 +22,6 @@ export default function Home() {
             variants={fadeUp}
             className="lg:col-span-7"
           >
-            <p className="overline text-brand-terracotta mb-6" data-testid="hero-overline">
-              Merchant Exports · Est. Thane, India
-            </p>
             <h1
               data-testid="hero-headline"
               className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tighter text-brand-dark"
@@ -38,7 +35,7 @@ export default function Home() {
             </h1>
             <p className="mt-10 text-lg md:text-xl text-brand-ink max-w-xl leading-relaxed">
               {COMPANY.pillarsLine}
-              <span className="block mt-2 font-serif italic text-brand-green text-2xl">
+              <span className="block mt-3 font-serif italic text-brand-terracotta text-2xl md:text-3xl font-semibold">
                 {COMPANY.closer}
               </span>
             </p>
