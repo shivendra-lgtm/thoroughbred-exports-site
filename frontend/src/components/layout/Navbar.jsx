@@ -12,28 +12,16 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 24);
-    handler();
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
   return (
     <header
       data-testid="site-navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-brand-cream/85 backdrop-blur-xl border-b border-brand-dark/10"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-brand-cream border-b border-brand-dark/10"
     >
       <div className="w-full pl-4 md:pl-8 pr-4 md:pr-8">
         <div className="flex items-center h-24 md:h-28">
