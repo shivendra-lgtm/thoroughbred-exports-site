@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -13,24 +13,54 @@ const fadeUp = {
   },
 };
 
+// Backgrounds cycled behind the hero. The first entry (containers) is ALWAYS
+// shown first on page load, then the loop alternates through the rest.
+const HERO_BACKGROUNDS = [
+  "/images/containers-bg.jpg",
+  "/images/hero-bg-1.jpg",
+  "/images/hero-bg-2.jpg",
+  "/images/hero-bg-3.jpg",
+  "/images/hero-bg-4.jpg",
+  "/images/hero-bg-5.jpg",
+  "/images/hero-bg-6.jpg",
+  "/images/hero-bg-7.jpg",
+];
+const BG_INTERVAL_MS = 6000;
+
 export default function Home() {
+  const [bgIdx, setBgIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(
+      () => setBgIdx((i) => (i + 1) % HERO_BACKGROUNDS.length),
+      BG_INTERVAL_MS
+    );
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <div data-testid="home-page">
       {/* HERO — the only content section on the homepage. Below it, the footer
           ("Reach Us") takes over. */}
-      <section className="relative overflow-hidden bg-black">
-        {/* Faded container-yard background */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "url('/images/containers-bg.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.4,
-            filter: "grayscale(0.35) contrast(1.05)",
-          }}
-        />
+      <section
+        data-testid="home-hero"
+        className="relative overflow-hidden bg-black"
+      >
+        {/* Cycling faded backgrounds (containers image shows first on load) */}
+        {HERO_BACKGROUNDS.map((src, i) => (
+          <div
+            key={src}
+            aria-hidden
+            className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
+            style={{
+              backgroundImage: `url('${src}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: i === bgIdx ? 0.4 : 0,
+              filter: "grayscale(0.35) contrast(1.05)",
+            }}
+          />
+        ))}
         {/* Vignette to keep the edges deep black */}
         <div
           aria-hidden
