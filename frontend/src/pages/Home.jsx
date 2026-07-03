@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <div data-testid="home-page">
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
+      <section className="relative overflow-hidden bg-brand-dark">
+        <div className="absolute inset-0 grain-dark pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-center">
           <motion.div
             initial="hidden"
@@ -24,18 +24,22 @@ export default function Home() {
           >
             <h1
               data-testid="hero-headline"
-              style={{ color: "#264635" }}
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight"
+              className="font-serif text-[2rem] sm:text-[2.7rem] lg:text-[3.375rem] leading-[1.35] tracking-tight"
             >
-              <span style={{ color: "#264635" }}>Harnessing </span>
-              <span style={{ color: "#264635" }} className="italic">Trade</span>
-              <br />
-              <span style={{ color: "#264635" }}>Opportunities</span>
-              <br />
-              <span style={{ color: "#264635" }}>with </span>
-              <span style={{ color: "#264635" }} className="italic">Precision.</span>
+              <span
+                className="inline"
+                style={{
+                  backgroundColor: "#264635",
+                  color: "#F6F4EB",
+                  padding: "0.15em 0.4em",
+                  boxDecorationBreak: "clone",
+                  WebkitBoxDecorationBreak: "clone",
+                }}
+              >
+                Harnessing <span className="italic">Trade</span> Opportunities with <span className="italic">Precision.</span>
+              </span>
             </h1>
-            <p className="mt-10 text-lg md:text-xl text-brand-ink max-w-xl leading-relaxed">
+            <p className="mt-10 text-lg md:text-xl text-brand-cream max-w-xl leading-relaxed">
               {COMPANY.pillarsLine}
               <span className="block mt-3 font-serif italic text-brand-terracotta text-2xl md:text-3xl font-semibold">
                 {COMPANY.closer}
@@ -46,7 +50,7 @@ export default function Home() {
               <Link
                 to="/services"
                 data-testid="hero-cta-services"
-                className="group inline-flex items-center gap-3 bg-brand-green text-brand-cream px-8 py-4 text-xs uppercase tracking-[0.22em] hover:bg-brand-dark transition-colors"
+                className="group inline-flex items-center gap-3 bg-brand-green text-brand-cream px-8 py-4 text-xs uppercase tracking-[0.22em] hover:bg-brand-terracotta transition-colors"
               >
                 Our Services
                 <ArrowRight
@@ -57,7 +61,7 @@ export default function Home() {
               <Link
                 to="/contact"
                 data-testid="hero-cta-contact"
-                className="inline-flex items-center gap-3 border border-brand-dark/70 text-brand-dark px-8 py-4 text-xs uppercase tracking-[0.22em] hover:bg-brand-dark hover:text-brand-cream transition-colors"
+                className="inline-flex items-center gap-3 border border-brand-cream/70 text-brand-cream px-8 py-4 text-xs uppercase tracking-[0.22em] hover:bg-brand-cream hover:text-brand-dark transition-colors"
               >
                 Start an Enquiry
               </Link>
