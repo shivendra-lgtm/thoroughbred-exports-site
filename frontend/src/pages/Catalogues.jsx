@@ -26,10 +26,12 @@ export default function Catalogues() {
               A quick note
             </p>
             <p className="font-serif text-xl md:text-2xl text-brand-dark leading-snug">
-              Some documents may be temporarily unavailable while they are being
-              refreshed for the current season. If you need a specific document
-              immediately, please reach out to us — we will send it across
-              within a few hours.
+              Some documents may be temporarily unavailable, outdated or they
+              are being refreshed for the current season. If you need a
+              specific document please reach out to us — we will help you with
+              your enquiry. Additionally feel free to enquire / reconfirm with
+              us about any specifications or other details by reaching out to
+              us.
             </p>
           </div>
         </div>
