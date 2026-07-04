@@ -9,6 +9,11 @@ export default function Licenses() {
             Certified for{" "}
             <span className="italic text-brand-green">Excellence.</span>
           </h1>
+          <p className="mt-8 max-w-2xl text-lg text-brand-ink leading-relaxed">
+            Thoroughbred Exports operates under the full suite of registrations
+            required for legitimate, quality-assured international trade from
+            India.
+          </p>
         </div>
       </section>
     </div>
