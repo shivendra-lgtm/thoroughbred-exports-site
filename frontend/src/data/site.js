@@ -108,6 +108,16 @@ export const CERTIFICATES = [
   { name: "FSSAI License", file: "/licenses/fssai.pdf" },
 ];
 
+// Catalogues shown on the /catalogues page dropdown.
+// Drop the PDFs into /public_html/catalogues/ on Bluehost (or
+// /app/frontend/public/catalogues/ locally). Add / remove entries here.
+export const CATALOGUE_FILES = [
+  { name: "Table Grapes", file: "/catalogues/table-grapes.pdf" },
+  { name: "Pomegranates", file: "/catalogues/pomegranates.pdf" },
+  { name: "Bananas", file: "/catalogues/bananas.pdf" },
+  { name: "Indian Mangoes", file: "/catalogues/indian-mangoes.pdf" },
+];
+
 // Add / remove catalogue entries here. Files must be dropped into /public/pdfs/
 // on the deployed site (or /app/frontend/public/pdfs/ in the repo).
 export const CATALOGUES = [
