@@ -106,11 +106,6 @@ export const CERTIFICATES = [
   { name: "IEC — Importer Exporter Code", file: "/licenses/iec.pdf" },
   { name: "APEDA Registration", file: "/licenses/apeda.pdf" },
   { name: "FSSAI License", file: "/licenses/fssai.pdf" },
-  { name: "FIEO Membership", file: "/licenses/fieo.pdf" },
-  { name: "Spices Board Registration", file: "/licenses/spices-board.pdf" },
-  { name: "Udyam / MSME Registration", file: "/licenses/msme.pdf" },
-  { name: "GST Registration", file: "/licenses/gst.pdf" },
-  { name: "PAN Card", file: "/licenses/pan.pdf" },
 ];
 
 // Add / remove catalogue entries here. Files must be dropped into /public/pdfs/
