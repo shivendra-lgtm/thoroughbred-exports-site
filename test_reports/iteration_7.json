@@ -1,0 +1,33 @@
+{
+  "summary": "Verified /licenses page bug fixes. All 3 cert logos (APEDA, FSSAI, DGFT) render correctly with correct src paths, all images return HTTP 200, and tile containers have no visible border (borderWidth 0px) and transparent backgroundColor (rgba(0,0,0,0)). All 4 regressions verified: no 'Compliance' overline, H1 exactly 'Certified for Excellence.', paragraph present, and only the 3-logo strip between paragraph and footer.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/licenses DGFT tile", "issues": ["DGFT logo PNG has a small white rectangular background baked into the source image (not a CSS border). Expected per request note — flagged for awareness, not a failure."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Verified at 1600x900. Tiles data-testid cert-tile-apeda/fssai/dgft each have borderWidth 0px, borderStyle solid (no visible border), backgroundColor rgba(0,0,0,0). Image HTTP status verified via in-browser fetch (urllib returns 403 due to CDN bot filter — use page.evaluate fetch for status checks).",
+  "verification_details": {
+    "img_srcs": ["/images/cert-apeda.png","/images/cert-fssai.png","/images/cert-dgft.png"],
+    "img_http_status": {"apeda":200,"fssai":200,"dgft":200},
+    "tiles": [
+      {"testid":"cert-tile-apeda","borderWidth":"0px","borderStyle":"solid","backgroundColor":"rgba(0, 0, 0, 0)"},
+      {"testid":"cert-tile-fssai","borderWidth":"0px","borderStyle":"solid","backgroundColor":"rgba(0, 0, 0, 0)"},
+      {"testid":"cert-tile-dgft","borderWidth":"0px","borderStyle":"solid","backgroundColor":"rgba(0, 0, 0, 0)"}
+    ],
+    "compliance_overline_absent": true,
+    "h1_text": "Certified for Excellence.",
+    "paragraph_present": true,
+    "no_global_excellence_variant": true
+  }
+}
