@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Linkedin,
-  ArrowRight,
-  Loader2,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { COMPANY, WEB3FORMS_ACCESS_KEY } from "@/data/site";
 
 const initial = { name: "", email: "", company: "", country: "", message: "" };
@@ -69,131 +61,16 @@ export default function Contact() {
 
   return (
     <div data-testid="contact-page">
-      {/* Header */}
-      <section className="relative">
-        <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-16 md:pt-24 md:pb-20">
-          <p className="overline text-brand-terracotta mb-6">Get in touch</p>
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tighter text-brand-dark max-w-4xl">
-            Let&rsquo;s move something{" "}
-            <span className="italic text-brand-green">across the world.</span>
-          </h1>
-        </div>
-      </section>
-
-      {/* Split layout */}
-      <section className="bg-brand-sand">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 grid lg:grid-cols-12 gap-14 lg:gap-20">
-          {/* Left — atmospheric */}
+      <section className="bg-brand-cream">
+        <div className="max-w-3xl mx-auto px-6 md:px-8 pt-8 pb-20 md:pt-14 md:pb-28">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="relative overflow-hidden h-64 md:h-80 mb-10">
-              <img
-                src="/images/img_24.jpg"
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-brand-green/50" />
-              <div className="absolute inset-0 grain-dark pointer-events-none" />
-              <div className="absolute inset-0 flex items-end p-8">
-                <p className="font-serif text-3xl md:text-4xl text-brand-cream leading-tight max-w-sm">
-                  Based in Thane.
-                  <br />
-                  <span className="italic text-brand-saffron">
-                    Shipping worldwide.
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            <ul className="space-y-8">
-              <li className="flex gap-4">
-                <MapPin
-                  size={20}
-                  className="text-brand-terracotta shrink-0 mt-1"
-                />
-                <div>
-                  <p className="overline text-brand-green mb-2">Registered Office</p>
-                  <p className="text-brand-dark leading-relaxed">
-                    {COMPANY.addressLines.map((l, i) => (
-                      <span key={i} className="block">
-                        {l}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </li>
-
-              <li className="flex gap-4">
-                <Phone
-                  size={20}
-                  className="text-brand-terracotta shrink-0 mt-1"
-                />
-                <div>
-                  <p className="overline text-brand-green mb-2">Phone</p>
-                  <a
-                    href={COMPANY.phoneHref}
-                    data-testid="contact-phone-link"
-                    className="font-serif text-2xl text-brand-dark hover:text-brand-terracotta transition-colors"
-                  >
-                    {COMPANY.phone}
-                  </a>
-                </div>
-              </li>
-
-              <li className="flex gap-4">
-                <Mail
-                  size={20}
-                  className="text-brand-terracotta shrink-0 mt-1"
-                />
-                <div>
-                  <p className="overline text-brand-green mb-2">Email</p>
-                  <a
-                    href={COMPANY.emailHref}
-                    data-testid="contact-email-link"
-                    className="text-brand-dark hover:text-brand-terracotta transition-colors break-all"
-                  >
-                    {COMPANY.email}
-                  </a>
-                </div>
-              </li>
-
-              <li className="flex gap-4">
-                <Linkedin
-                  size={20}
-                  className="text-brand-terracotta shrink-0 mt-1"
-                />
-                <div>
-                  <p className="overline text-brand-green mb-2">LinkedIn</p>
-                  <a
-                    href={COMPANY.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="contact-linkedin-link"
-                    className="inline-flex items-center gap-2 text-brand-dark hover:text-brand-terracotta transition-colors"
-                  >
-                    Connect with Shivendra Rajeshwari
-                    <ArrowRight size={14} />
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Right — form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="lg:col-span-7"
-          >
-            <p className="overline text-brand-terracotta mb-4">Send an enquiry</p>
+            <p className="overline text-brand-terracotta mb-4 font-bold">
+              Send an enquiry
+            </p>
             <h2 className="font-serif text-3xl md:text-5xl tracking-tight text-brand-dark mb-10 leading-tight">
               Tell us what you&rsquo;re looking for.
             </h2>
@@ -208,8 +85,8 @@ export default function Contact() {
                   Message received.
                 </h3>
                 <p className="text-brand-ink leading-relaxed">
-                  Thank you for reaching out. We&rsquo;ll get back to you within 24
-                  hours, usually much sooner.
+                  Thank you for reaching out. We&rsquo;ll get back to you within
+                  24 hours, usually much sooner.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
