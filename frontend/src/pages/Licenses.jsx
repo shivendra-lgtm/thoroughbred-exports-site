@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { Download } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CERTIFICATES } from "@/data/site";
 
 export default function Licenses() {
+  const [selectedFile, setSelectedFile] = useState("");
+
+  const selected = CERTIFICATES.find((c) => c.file === selectedFile);
+
   return (
     <div data-testid="licenses-page">
       <section className="relative">
@@ -20,13 +33,13 @@ export default function Licenses() {
             className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-5xl"
           >
             {[
-              { src: "/images/cert-apeda.png", alt: "APEDA — Agricultural & Processed Food Products Export Development Authority" },
-              { src: "/images/cert-fssai.png", alt: "FSSAI — Food Safety and Standards Authority of India" },
-              { src: "/images/cert-dgft.png", alt: "Directorate General of Foreign Trade (DGFT), Government of India" },
+              { src: "/images/cert-apeda.png", alt: "APEDA" },
+              { src: "/images/cert-fssai.png", alt: "FSSAI" },
+              { src: "/images/cert-dgft.png", alt: "DGFT" },
             ].map((c) => (
               <div
                 key={c.src}
-                data-testid={`cert-tile-${c.src.split("-").pop().replace(".png","")}`}
+                data-testid={`cert-tile-${c.alt.toLowerCase()}`}
                 className="p-6 md:p-8 flex items-center justify-center"
               >
                 <img
@@ -36,6 +49,73 @@ export default function Licenses() {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Certificate selector */}
+          <div
+            data-testid="cert-selector"
+            className="mt-16 md:mt-24 max-w-2xl"
+          >
+            <p className="overline text-brand-terracotta mb-4 font-bold">
+              Download a Certificate
+            </p>
+            <p className="text-brand-ink leading-relaxed mb-6">
+              Pick a license or certification from the list below to view or
+              download the original document.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-stretch">
+              <Select value={selectedFile} onValueChange={setSelectedFile}>
+                <SelectTrigger
+                  data-testid="cert-select-trigger"
+                  className="h-14 flex-1 bg-brand-cream border-brand-dark/25 text-base text-brand-dark focus:ring-brand-green focus:border-brand-green"
+                >
+                  <SelectValue placeholder="Select a certificate…" />
+                </SelectTrigger>
+                <SelectContent className="bg-brand-cream border-brand-dark/15 max-h-72">
+                  {CERTIFICATES.map((c) => (
+                    <SelectItem
+                      key={c.file}
+                      value={c.file}
+                      data-testid={`cert-option-${c.name
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, "-")}`}
+                      className="text-brand-dark focus:bg-brand-green/10 focus:text-brand-green cursor-pointer"
+                    >
+                      {c.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <a
+                href={selectedFile || undefined}
+                target={selectedFile ? "_blank" : undefined}
+                rel={selectedFile ? "noopener noreferrer" : undefined}
+                data-testid="cert-download-button"
+                aria-disabled={!selectedFile}
+                onClick={(e) => {
+                  if (!selectedFile) e.preventDefault();
+                }}
+                className={`inline-flex items-center justify-center gap-3 h-14 px-8 text-xs uppercase tracking-[0.22em] transition-colors ${
+                  selectedFile
+                    ? "bg-brand-green text-brand-cream hover:bg-brand-dark cursor-pointer"
+                    : "bg-brand-dark/15 text-brand-dark/40 cursor-not-allowed"
+                }`}
+              >
+                <Download size={16} />
+                Download
+              </a>
+            </div>
+
+            {selected && (
+              <p
+                data-testid="cert-selected-preview"
+                className="mt-4 text-sm text-brand-ink"
+              >
+                Selected: <span className="text-brand-dark">{selected.name}</span>
+              </p>
+            )}
           </div>
         </div>
       </section>

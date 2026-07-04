@@ -98,6 +98,21 @@ export const LICENSES = [
   },
 ];
 
+// Certificates that can be downloaded from the /licenses page.
+// Drop the corresponding PDF files into /public_html/licenses/ on Bluehost
+// (or /app/frontend/public/licenses/ locally). To add / remove entries,
+// simply edit this array — the dropdown updates automatically.
+export const CERTIFICATES = [
+  { name: "IEC — Importer Exporter Code", file: "/licenses/iec.pdf" },
+  { name: "APEDA Registration", file: "/licenses/apeda.pdf" },
+  { name: "FSSAI License", file: "/licenses/fssai.pdf" },
+  { name: "FIEO Membership", file: "/licenses/fieo.pdf" },
+  { name: "Spices Board Registration", file: "/licenses/spices-board.pdf" },
+  { name: "Udyam / MSME Registration", file: "/licenses/msme.pdf" },
+  { name: "GST Registration", file: "/licenses/gst.pdf" },
+  { name: "PAN Card", file: "/licenses/pan.pdf" },
+];
+
 // Add / remove catalogue entries here. Files must be dropped into /public/pdfs/
 // on the deployed site (or /app/frontend/public/pdfs/ in the repo).
 export const CATALOGUES = [
