@@ -12,13 +12,8 @@ export default function Services() {
       >
         <div className="max-w-3xl mx-auto px-6 md:px-8 py-20 md:py-28">
           <p className="overline text-brand-terracotta mb-6">About Us</p>
-          <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight text-brand-dark">
-            Simplifying the sourcing of{" "}
-            <span className="italic text-brand-green">high-quality commodities</span>{" "}
-            from across India.
-          </h1>
 
-          <div className="mt-12 space-y-6 text-base md:text-lg leading-relaxed text-brand-ink">
+          <div className="space-y-6 text-base md:text-lg leading-relaxed text-brand-ink">
             <p>
               Thoroughbred Exports is primarily built with the objective of
               simplifying the sourcing of high-quality commodities from across
@@ -54,7 +49,6 @@ export default function Services() {
 
           {/* Fresh Produce */}
           <div className="mt-16 md:mt-20 border-t border-brand-dark/10 pt-12 md:pt-16">
-            <p className="overline text-brand-terracotta mb-4">01</p>
             <h2 className="font-serif text-3xl md:text-5xl leading-tight tracking-tight text-brand-dark">
               Fresh <span className="italic text-brand-green">Produce.</span>
             </h2>
@@ -75,13 +69,9 @@ export default function Services() {
               </p>
               <p>
                 Some of the most sought-after agricultural produce we handle
-                includes{" "}
-                <span className="text-brand-dark font-medium">
-                  Indian Mangoes, Table Grapes, Bananas, Purandar Figs,
-                  Pomegranates, Golden Custard Apples, Semi Husk Coconuts,
-                  Jackfruits, Chillies, Red Onions
-                </span>
-                , and more.
+                includes Indian Mangoes, Table Grapes, Bananas, Purandar Figs,
+                Pomegranates, Golden Custard Apples, Semi Husk Coconuts,
+                Jackfruits, Chillies, Red Onions, and more.
               </p>
               <p>
                 We are also engaged in the import of select fruits, including
@@ -93,7 +83,6 @@ export default function Services() {
 
           {/* Ingredients and Additives */}
           <div className="mt-16 md:mt-20 border-t border-brand-dark/10 pt-12 md:pt-16">
-            <p className="overline text-brand-terracotta mb-4">02</p>
             <h2 className="font-serif text-3xl md:text-5xl leading-tight tracking-tight text-brand-dark">
               Ingredients{" "}
               <span className="italic text-brand-green">&amp; Additives.</span>
@@ -107,12 +96,11 @@ export default function Services() {
                 and packaging standards.
               </p>
               <p>
-                Guar Gum, also known as{" "}
-                <span className="text-brand-dark font-medium">E412</span>, is a
-                galactomannan polysaccharide extracted from guar seeds. It is
-                widely used across food, pharmaceutical, cosmetic, textile,
-                paper, and industrial applications for its thickening,
-                stabilizing, and emulsifying properties.
+                Guar Gum, also known as E412, is a galactomannan polysaccharide
+                extracted from guar seeds. It is widely used across food,
+                pharmaceutical, cosmetic, textile, paper, and industrial
+                applications for its thickening, stabilizing, and emulsifying
+                properties.
               </p>
               <p>
                 We also export native and gelatinized corn starch based on
@@ -127,7 +115,6 @@ export default function Services() {
 
           {/* Additional Trading Activities */}
           <div className="mt-16 md:mt-20 border-t border-brand-dark/10 pt-12 md:pt-16">
-            <p className="overline text-brand-terracotta mb-4">03</p>
             <h2 className="font-serif text-3xl md:text-5xl leading-tight tracking-tight text-brand-dark">
               Additional{" "}
               <span className="italic text-brand-green">Trading Activities.</span>
