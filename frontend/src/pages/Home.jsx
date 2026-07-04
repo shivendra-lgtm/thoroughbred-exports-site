@@ -147,22 +147,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      {/* MURAL — AI-generated warehouse-wall graffiti slab. */}
-      <section
-        data-testid="mural-section"
-        className="relative bg-brand-sand border-y border-brand-dark/10 overflow-hidden"
-      >
-        <motion.img
-          src="/images/mural.png"
-          alt=""
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="block w-full h-auto"
-        />
-      </section>
     </div>
   );
 }
