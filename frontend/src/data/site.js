@@ -116,6 +116,8 @@ export const CATALOGUE_FILES = [
   { name: "Pomegranates", file: "/catalogues/pomegranates.pdf" },
   { name: "Bananas", file: "/catalogues/bananas.pdf" },
   { name: "Indian Mangoes", file: "/catalogues/indian-mangoes.pdf" },
+  { name: "Writeups", file: "/catalogues/writeups.pdf" },
+  { name: "Circulars", file: "/catalogues/circulars.pdf" },
 ];
 
 // Add / remove catalogue entries here. Files must be dropped into /public/pdfs/
