@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { COMPANY } from "@/data/site";
+import MuralSVG from "@/components/MuralSVG";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -146,6 +147,23 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* MURAL — hand-drawn graffiti/caricature slab. */}
+      <section
+        data-testid="mural-section"
+        className="relative bg-brand-sand border-y border-brand-dark/10 overflow-hidden"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full"
+          style={{ aspectRatio: "1600 / 460", maxHeight: 460 }}
+        >
+          <MuralSVG className="w-full h-full" />
+        </motion.div>
       </section>
     </div>
   );
