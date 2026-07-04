@@ -11,9 +11,9 @@ export default function Services() {
         className="relative bg-brand-cream"
       >
         <div className="max-w-3xl mx-auto px-6 md:px-8 pt-6 pb-20 md:pt-10 md:pb-28">
-          <p className="overline text-brand-terracotta mb-6">About Us</p>
+          <p className="overline text-brand-terracotta mb-6 text-center">About Us</p>
 
-          <div className="space-y-6 text-base md:text-lg leading-relaxed text-brand-ink">
+          <div className="space-y-6 text-base md:text-lg leading-relaxed text-brand-dark font-semibold">
             <p>
               Thoroughbred Exports is primarily built with the objective of
               simplifying the sourcing of high-quality commodities from across
