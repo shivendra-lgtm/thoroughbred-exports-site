@@ -14,6 +14,27 @@ export default function Licenses() {
             required for legitimate, quality-assured international trade from
             India.
           </p>
+
+          <div
+            data-testid="cert-logos"
+            className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 max-w-4xl"
+          >
+            {[
+              { src: "/images/cert-apeda.png", alt: "APEDA — Agricultural & Processed Food Products Export Development Authority" },
+              { src: "/images/cert-fssai.png", alt: "FSSAI — Food Safety and Standards Authority of India" },
+            ].map((c) => (
+              <div
+                key={c.src}
+                className="bg-brand-cream border border-brand-dark/10 p-8 md:p-10 flex items-center justify-center"
+              >
+                <img
+                  src={c.src}
+                  alt={c.alt}
+                  className="max-h-32 md:max-h-40 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
