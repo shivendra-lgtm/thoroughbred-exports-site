@@ -22,7 +22,7 @@ export const COMPANY = {
 };
 
 // Web3Forms access key — replace with the key from https://web3forms.com/
-export const WEB3FORMS_ACCESS_KEY = "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY";
+export const WEB3FORMS_ACCESS_KEY = "7529227f-7111-4547-902a-29ddebf82253";
 
 export const PILLARS = [
   {
