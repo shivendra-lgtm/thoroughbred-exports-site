@@ -9,7 +9,9 @@
 /coverage
 
 # production
-/build
+# The build/ folder normally shouldn't be committed for Node apps, but for this
+# static site we WANT it in the repo so users can download the deploy zip.
+# /build
 
 # misc
 .DS_Store

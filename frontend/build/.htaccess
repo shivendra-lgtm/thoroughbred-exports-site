@@ -1,0 +1,46 @@
+# Thoroughbred Exports — SPA rewrite rules for Bluehost / Apache shared hosting
+# Drop this file next to index.html inside public_html/ (or the sub-directory
+# where you upload the built site).
+
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # If an actual file or directory is requested, serve it as-is (assets, PDFs, images).
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Otherwise, rewrite everything else to index.html so React Router can handle it.
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Cache built assets aggressively (hashed filenames from the build take care of busting).
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg              "access plus 1 year"
+    ExpiresByType image/png               "access plus 1 year"
+    ExpiresByType image/webp              "access plus 1 year"
+    ExpiresByType image/svg+xml           "access plus 1 year"
+    ExpiresByType text/css                "access plus 1 year"
+    ExpiresByType application/javascript  "access plus 1 year"
+    ExpiresByType font/woff2              "access plus 1 year"
+    ExpiresByType application/pdf         "access plus 1 week"
+    ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+</IfModule>
+
+# Sensible security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

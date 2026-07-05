@@ -29,6 +29,9 @@ next-env.d.ts
 /build
 dist/
 dist
+# Whitelist the deployable frontend build so it ships in the GitHub repo
+!frontend/build
+!frontend/build/**
 
 # Environment files (comprehensive coverage)
 
@@ -72,6 +75,8 @@ agenthub/agents/youtube/db
 *.pack
 *.deb
 *.dylib
+# Whitelist the single deployable zip so it ships in the GitHub repo
+!thoroughbred-exports-site.zip
 
 # Build caches
 .cache/
