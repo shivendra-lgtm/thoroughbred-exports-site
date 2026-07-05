@@ -1,125 +1,147 @@
 # Deploying Thoroughbred Exports to Bluehost
 
-This site is a **pure static React build**. No Node.js, PHP or Python is
-required on the server. Any Apache-based shared hosting (Bluehost, HostGator,
-GoDaddy cPanel, etc.) will work.
+Your site is a **pure static React build** — no Node.js, no PHP, no
+Python needed on the server. Any Apache-based shared hosting works
+(Bluehost, HostGator, GoDaddy cPanel, etc.).
+
+Total upload size: ~18 MB (~14 MB zipped).
 
 ---
 
-## 1. Configure the contact form (one-time)
+## 1. Configure the contact form (one-time, 2 minutes)
 
-The contact form uses **Web3Forms** (free, no backend).
+The enquiry form uses **Web3Forms** (free, no backend, no login).
 
-1. Go to <https://web3forms.com/> and enter your email address to get a free
-   **access key**.
-2. Open `frontend/src/data/site.js`.
-3. Replace the placeholder:
+1. Go to <https://web3forms.com/>.
+2. Enter your email (`shivendra@thoroughbredexports.com`) → click **Create Access Key**.
+3. Check your inbox for the key (it looks like `abc12345-def6-7890-...`).
+4. In your project, open `frontend/src/data/site.js` and replace the placeholder:
    ```js
    export const WEB3FORMS_ACCESS_KEY = "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY";
    ```
-   with your actual key. Save the file.
+   with your real key. Save.
 
-Every enquiry submitted through the site will be delivered to the email you
-registered with Web3Forms — no server hosting required.
-
----
-
-## 2. Drop your logo
-
-Save your logo image as `logo.png` (recommended: transparent PNG, ~256×256 px)
-and place it at:
-
-```
-frontend/public/images/logo.png
-```
-
-The navbar automatically picks it up. If the file is missing the logo image
-gracefully hides, leaving only the wordmark.
+Every submission on `/contact` will be delivered to your email inbox — no server involved.
 
 ---
 
-## 3. Add your PDFs
-
-Place the PDF files listed in `frontend/src/data/site.js` inside:
-
-```
-frontend/public/pdfs/
-```
-
-Expected filenames (from the default configuration):
-- `fresh-produce-catalogue.pdf`
-- `spices-ingredients-catalogue.pdf`
-- `company-profile.pdf`
-- `season-circular-latest.pdf`
-
-To add a **new** document, edit `frontend/src/data/site.js` and add a new
-object to the `CATALOGUES` array with `title`, `description`, `category` and
-`file` (e.g. `/pdfs/my-new-doc.pdf`).
-
-> Tip: once the site is live on Bluehost, you can also drop new PDFs directly
-> into `/public_html/pdfs/` via **cPanel → File Manager** without rebuilding
-> the site. Just remember to also edit `site.js` and rebuild if you want the
-> new file to appear on the Catalogues page.
-
----
-
-## 4. Build the static site
+## 2. Build the site
 
 From the `frontend/` directory:
 
 ```bash
-yarn install
+yarn install     # first time only
 yarn build
 ```
 
-This produces a `build/` folder containing the fully static site:
-- `index.html`
-- `.htaccess`  ← rewrite rules for React Router (already included)
-- `static/`    ← hashed JS/CSS bundles
-- `images/`    ← your photographs
-- `pdfs/`      ← your documents
+This creates a `build/` folder. Everything you need to deploy sits inside it.
 
 ---
 
-## 5. Upload to Bluehost
+## 3. Upload to Bluehost — the easy way
 
-1. Log in to **Bluehost cPanel** → **File Manager**.
-2. Open your `public_html/` folder (or the sub-directory for the specific
-   domain, e.g. `public_html/thoroughbredexports.com/`).
-3. Upload the **contents** of the `build/` folder (not the folder itself) into
-   `public_html/`. The easiest way is to zip the `build/` folder locally,
-   upload the zip, then use cPanel's **Extract** feature.
-4. Ensure `.htaccess` was uploaded. In cPanel File Manager, click
-   **Settings** → tick **Show Hidden Files (dotfiles)** if you don't see it.
-5. Visit your domain — the site should be live.
+1. Sign in to **Bluehost** → open the **cPanel** for your domain.
+2. Open **File Manager** → navigate to `public_html/` (or the sub-folder
+   for your specific domain, e.g. `public_html/thoroughbredexports.com/`).
+3. If there's anything there from a previous WordPress install, delete
+   its contents (keep the folder itself).
+4. Click **Upload** (top toolbar).
+5. Upload the file `thoroughbred-exports-site.zip` (the one I packaged
+   for you at `/app/thoroughbred-exports-site.zip`).
+6. Back in File Manager, right-click the uploaded zip → **Extract** →
+   confirm the destination is `public_html/` (or your sub-folder).
+7. Delete the zip afterwards (it's no longer needed).
+8. **Important — enable hidden files:** In File Manager click
+   **Settings** (top-right) → tick **Show Hidden Files (dotfiles)** →
+   Save. You should now see `.htaccess` in the folder. If it isn't
+   there, upload it manually from your local `build/.htaccess`.
 
-### Deep-link routing
-The included `.htaccess` rewrites all unknown URLs to `index.html` so that
-React Router URLs like `/services`, `/contact`, etc. work when accessed
-directly or shared. **Do not skip uploading `.htaccess`.**
+Visit your domain — the site should be live within seconds.
+
+### Why `.htaccess` matters
+
+The included `.htaccess` tells Apache to rewrite all unknown URLs
+(`/services`, `/licenses`, etc.) back to `index.html` so that React
+Router deep-links work. If a visitor refreshes `/contact` and gets a
+404, `.htaccess` is missing — re-upload it.
 
 ---
 
-## 6. Adding / editing content later
+## 4. Drop your PDFs into `/licenses/` and `/catalogues/`
 
-Almost all editable content lives in **one file**:
+Both dropdowns on the site are wired to look for files at fixed paths.
+Just upload the PDFs to Bluehost — no rebuild needed.
+
+### Certificates (Licenses page)
+Upload to `public_html/licenses/`:
+
+| Certificate               | Filename        |
+| ------------------------- | --------------- |
+| IEC — Importer Exporter Code | `iec.pdf`   |
+| APEDA Registration        | `apeda.pdf`     |
+| FSSAI License             | `fssai.pdf`     |
+
+### Catalogues (Catalogues page)
+Upload to `public_html/catalogues/`:
+
+| Catalogue      | Filename              |
+| -------------- | --------------------- |
+| Table Grapes   | `table-grapes.pdf`    |
+| Pomegranates   | `pomegranates.pdf`    |
+| Bananas        | `bananas.pdf`         |
+| Indian Mangoes | `indian-mangoes.pdf`  |
+| Writeups       | `writeups.pdf`        |
+| Circulars      | `circulars.pdf`       |
+
+If a filename doesn't match exactly, the Download button on the site
+will 404 — filenames are case-sensitive on most shared hosts.
+
+> Tip: If you want a different filename, edit `frontend/src/data/site.js`
+> (the `CERTIFICATES` and `CATALOGUE_FILES` arrays), rebuild, and re-upload.
+
+---
+
+## 5. Adding / editing content later
+
+Almost everything editable lives in a single file:
 
 ```
 frontend/src/data/site.js
 ```
 
-Change contact details, add licenses, add catalogues, tweak pillars — save the
-file, run `yarn build` again, re-upload the `build/` folder.
+Change contact details, add a new certificate row, add a new catalogue
+row, tweak the Web3Forms key → save → `yarn build` → re-upload the
+`build/` contents.
+
+Text content (paragraphs on the /services About Us and /licenses pages,
+the "A quick note" text on /catalogues) lives directly inside the
+respective files in `frontend/src/pages/`.
 
 ---
 
-## Troubleshooting
+## 6. Troubleshooting
 
-- **404 on `/services` after a page refresh** → `.htaccess` isn't uploaded or
-  Apache `mod_rewrite` isn't enabled (Bluehost has it on by default).
-- **Fonts not loading** → Check that the site is served over HTTPS. Google
-  Fonts require it.
-- **Contact form always errors** → The Web3Forms key hasn't been replaced in
-  `site.js`, or the key is inactive. Log in to Web3Forms to verify.
-- **PDFs 404** → Make sure the filename in `site.js` matches EXACTLY the
-  filename on the server (case-sensitive on most shared hosts).
+| Symptom | Fix |
+| --- | --- |
+| **404 when refreshing `/services`** | `.htaccess` isn't uploaded (or hidden files aren't shown in cPanel). Re-upload it. |
+| **Fonts not loading** | Site must be served over HTTPS. Bluehost gives a free SSL — enable it in **cPanel → SSL/TLS Status → Run AutoSSL**. |
+| **Contact form errors out** | Web3Forms key hasn't been replaced in `site.js`, or the key is inactive. Log in to Web3Forms to check. |
+| **PDF Download 404** | Filename on the server doesn't exactly match the entry in `site.js` (case-sensitive). |
+| **Site looks unstyled / blank** | Delete browser cache. If persistent, ensure the `static/` folder was uploaded intact. |
+
+---
+
+## Ready-made zip
+
+You'll find a fresh build here (rebuild anytime with `yarn build`):
+
+```
+/app/thoroughbred-exports-site.zip   ← ~14 MB, contains everything
+```
+
+Download this file (right-click → Save from Emergent's file panel, or
+your terminal/SFTP), then follow **Step 3** above.
+
+---
+
+That's it. From key + zip in hand, you're 5 minutes away from live.
